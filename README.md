@@ -4,3 +4,15 @@ This repository will be used in order to create Music PDF sheets with latex gene
 
 
 This use a simple text editor with syntaxt hightling and code autocompletion in order to write [MusiXtex](https://ctan.org/pkg/musixtex) language, converted in pdf.
+
+# Install
+
+TODO
+
+# Demo
+
+TODO
+
+# Music Language syntax
+
+TODO
