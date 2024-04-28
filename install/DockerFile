@@ -1,0 +1,21 @@
+FROM node:latest
+
+RUN mkdir -p /app
+
+RUN mkdir -p /usr/local/lib
+
+WORKDIR /app
+
+# # Copy or project directory (locally) in the current directory of our docker image (/app)
+# COPY DaunoisMusic\src\app\backend ./app.jar
+
+# COPY ./setup.sh .
+# COPY ./antlr.sh .
+
+# Expose $PORT on container.
+# We use a varibale here as the port is something that can differ on the environment.
+# EXPOSE $PORT
+
+# # Start the app
+# CMD [ "java", "-jar", "./app.jar" ]
+CMD [ "bash" ]
