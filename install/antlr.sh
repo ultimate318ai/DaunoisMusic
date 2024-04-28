@@ -1,4 +1,3 @@
-apt install java
 mkdir -p builds
 cd builds
 curl -O http://www.antlr.org/download/antlr-4.13.1-complete.jar
