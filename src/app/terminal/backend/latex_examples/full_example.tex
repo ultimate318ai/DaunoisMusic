@@ -1,0 +1,60 @@
+\documentclass[10pt]{article}
+ 
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}  
+\usepackage{musixtex}
+\usepackage[frenchb]{babel}
+
+\begin{document}
+
+\normalmusicsize 
+
+\begin{music}
+
+\instrumentnumber{2} % 2 instruments
+
+\setstaffs 1{2} % instrument 1 (en bas) : 2 portées
+
+\setclef{1}{60} % clef de fa (6) en 1, clef de sol (0) en 2
+\generalmeter{\meterfrac{4}{4}} % mesure 4/4
+\setname 1{piano} %
+\setname 2{chant} %
+\parindent 10mm % pour éviter la collision de piano avec l'accolade
+\startextract
+% {{bleu|1re mesure}}
+\Notes 
+\ha J | % chgt portée, même instr
+\zhu{c e}\hu g & % chgt instr ; pas d'espace entre } et \hu
+\islurd0c\ibu0d0\qb0{c c c}\tslur0d\tbu0\qb0d 
+\enotes % assure l'alignement
+%
+\Notes 
+\ha N | % chgt portée, même instr
+\zhu{g i}\hu k & % chgt instr
+\qa{e d} 
+\enotes 
+\bar % après toutes les notes de la mesure, pour toutes les voix
+% {{bleu|2e mesure}}
+\Notes
+\qa J | 
+\zqu{c e}\qu g &
+\islurd0c\ibu0d0\qb0{c e} 
+\enotes
+%
+\Notes
+\qa N |
+\zqu{g i}\qu k &
+\qb0{d}\tslur0d\tbu0\qb0d
+\enotes
+%
+\Notes
+\ha J | 
+\zhu{c e}\hu g &
+\ha c 
+\enotes
+%
+\endextract
+
+\end{music}
+
+\end{document}
