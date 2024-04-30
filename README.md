@@ -7,18 +7,7 @@ This use a simple text editor with syntaxt hightling and code autocompletion in 
 
 # Install
 
-## docker part
-
-```sh
-docker build -t test
-
-docker run -p 4201:4200 test
-```
-
-You can check if the container is running with the command : ```docker ps```
-
-> Remove the container with ```docker container ls ``` -> get the container ID.
-> Then do ```docker rm -f <container ID>```
+TODO
 
 # Demo
 
