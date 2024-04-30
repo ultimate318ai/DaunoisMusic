@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "@types/node": "^20.12.7"
+  },
+  "dependencies": {
+    "antlr4": "^4.13.1-patch-1"
+  }
+}
