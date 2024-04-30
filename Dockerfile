@@ -7,11 +7,6 @@ RUN apk update && apk add openjdk17
 
 COPY ./ /usr/app
 
-# RUN npm install
-
-# RUN npm install -g @angular/cli
-
-
 # Antlr install
 RUN apk --no-cache add curl
 RUN curl -O http://www.antlr.org/download/antlr-4.7.1-complete.jar
@@ -25,4 +20,10 @@ RUN npm i antlr4 --save
 RUN mkdir grammars
 RUN curl --http1.1 https://github.com/antlr/grammars-v4/blob/master/ecmascript/ECMAScript.g4 --output grammars/ECMAScript.g4
 
-CMD ["/bin/sh"]
+
+# Angular part
+RUN npm install
+
+RUN npm install -g @angular/cli
+
+CMD ["ng", "serve", "--host", "0.0.0.0"]
