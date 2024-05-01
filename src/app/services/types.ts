@@ -1,16 +1,16 @@
-import { LanguageKeyword, MiscKeyword } from './grammar';
+import { LanguageKeywordType, LanguageSymbolType } from './grammar';
 import { LexerService } from './lexer.service';
 
 interface TokenData {
   value: string;
-  id: LanguageKeyword | MiscKeyword;
+  id: LanguageKeywordType | LanguageSymbolType;
   line: number;
   column: number;
   length: number;
 }
 export default class Token implements TokenData {
   public value: string;
-  public id: LanguageKeyword | MiscKeyword;
+  public id: LanguageKeywordType | LanguageSymbolType;
   public line: number;
   public column: number;
   public length: number;

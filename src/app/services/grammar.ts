@@ -1,11 +1,21 @@
-export type LanguageKeyword = 'program begin' | 'program end';
+export type LanguageKeywordType = (typeof languageKeywordList)[number];
 
-export type MiscKeyword = 'newline' | 'whitespace';
+export type LanguageSymbolType = (typeof languageSymbolList)[number];
 
 export interface GrammarToken {
-  id: LanguageKeyword | MiscKeyword;
+  id: LanguageKeywordType | LanguageSymbolType;
   match: string;
 }
+
+const languageKeywordList = <const>['MusicSheet'];
+
+const languageSymbolList = <const>[
+  'newline',
+  'whitespace',
+  'dot separator',
+  'left brace',
+  'right brace',
+];
 
 const grammar: GrammarToken[] = [
   {
@@ -15,6 +25,22 @@ const grammar: GrammarToken[] = [
   {
     id: 'whitespace',
     match: '\\s',
+  },
+  {
+    id: 'MusicSheet',
+    match: 'MusicSheet',
+  },
+  {
+    id: 'dot separator',
+    match: ':',
+  },
+  {
+    id: 'left brace',
+    match: '\\{',
+  },
+  {
+    id: 'right brace',
+    match: '\\}',
   },
 ];
 
