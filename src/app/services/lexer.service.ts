@@ -30,16 +30,12 @@ export class LexerService {
     this.expr += `(${def.match})`;
     this.regex = undefined;
     this.grammar.push(def);
-
-    return this;
   }
   public loadGrammar(grammar: GrammarToken[]) {
     grammar.forEach((def) => this.loadDefinition(def));
-    return this;
   }
   public loadData(data: string) {
     this.data += data;
-    return this;
   }
   public next(): Token | undefined {
     const regex = this.getRegex();
@@ -79,7 +75,6 @@ export class LexerService {
       const token = this.next();
       if (!token) break;
     }
-
     return this.tokens;
   }
   public update() {
@@ -107,8 +102,6 @@ export class LexerService {
           return token.moveTo(1, 1, false);
         }
       });
-
-    return this;
   }
   public empty() {
     this.data = '';
@@ -116,7 +109,5 @@ export class LexerService {
     this.column = 1;
     this.index = 0;
     this.tokens = [];
-
-    return this;
   }
 }
