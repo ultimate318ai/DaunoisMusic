@@ -11,6 +11,8 @@ export class CompilerService {
   }
 
   processLexerCode(code: string) {
+    console.log('je suis le code');
+    console.log(code);
     this.lexer.loadData(code);
     return this.lexer.processAll();
   }

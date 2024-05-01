@@ -1,12 +1,12 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (submit)="sendCodeToCompiler(code)">
   <!-- <input formControlName="contact" placeholder="contact" required /> -->
   <textarea
     id="code"
     placeholder="code"
-    formControllerName="code"
+    formControlName="code"
     required
   ></textarea>
   <button id="compile" type="submit">Compile</button>
 </form>
 <br />
-<app-terminal />
+<app-terminal [tokenSubmitted]="tokenAsStringList" />

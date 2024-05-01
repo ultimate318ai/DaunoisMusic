@@ -11,23 +11,29 @@ import Token from './services/types';
 export class AppComponent {
   title = 'DaunoisMusic';
 
-  @Output() tokenSubmitted: EventEmitter<Token[]> = new EventEmitter();
+  tokenAsStringList: string[] = [];
 
   form: FormGroup;
 
   constructor(private compilerService: CompilerService) {
     this.form = new FormGroup({
-      code: new FormControl(['', Validators.required]),
+      code: new FormControl('', [Validators.required]),
     });
   }
 
   get code(): string {
-    const ramValue = this.form.get('code')?.value;
+    const control = this.form.get('code');
+    if (!control) {
+      throw new Error("No form control for 'code'");
+    }
+    const ramValue = control.value;
+    console.log('value');
+    console.log(ramValue);
     return ramValue ?? '';
   }
 
   sendCodeToCompiler(code: string) {
     const tokenList = this.compilerService.processLexerCode(code);
-    this.tokenSubmitted.emit(tokenList);
+    this.tokenAsStringList = tokenList.map((token) => token.toString());
   }
 }

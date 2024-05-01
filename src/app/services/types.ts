@@ -60,4 +60,8 @@ export default class Token implements TokenData {
     }
     return this;
   }
+
+  public toString(): string {
+    return `[${this.id}] (${this.column}:${this.line}): ${this.value}`;
+  }
 }

@@ -1,4 +1,11 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+  ViewEncapsulation,
+} from '@angular/core';
 import { Terminal } from '@xterm/xterm';
 import Token from '../services/types';
 
@@ -13,8 +20,10 @@ import Token from '../services/types';
     './terminal.component.css',
   ],
 })
-export class TerminalComponent implements OnInit {
+export class TerminalComponent implements OnInit, OnChanges {
   private terminal: Terminal;
+
+  @Input() tokenSubmitted: string[] = [];
 
   constructor() {
     this.terminal = new Terminal();
@@ -27,11 +36,13 @@ export class TerminalComponent implements OnInit {
     this.terminal.writeln('Hello from \x1B[1;3;31mxterm.js\x1B[0m $');
   }
 
-  print(data: string): void {
-    this.terminal.writeln(data);
+  ngOnChanges(changes: SimpleChanges): void {
+    const tokenChanges = changes['tokenSubmitted'];
+    if (tokenChanges.currentValue != tokenChanges.previousValue)
+      this.print(tokenChanges.currentValue);
   }
 
-  onTokenSubmitted(tokenList: Token[]) {
-    this.print(tokenList);
+  print(data: string): void {
+    this.terminal.writeln(data);
   }
 }
