@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { Terminal } from '@xterm/xterm';
-// import * as child from 'child_process'; # to use in python backend!
+import Token from '../services/types';
 
 @Component({
   selector: 'app-terminal',
@@ -24,13 +24,14 @@ export class TerminalComponent implements OnInit {
     if (!terminalElement)
       throw new Error('No Html element found for terminal.');
     this.terminal.open(terminalElement);
-    this.terminal.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $');
-    // this.executeCommand('ls');
+    this.terminal.writeln('Hello from \x1B[1;3;31mxterm.js\x1B[0m $');
   }
 
-  // executeCommand(command: string) {
-  //   const execution: child.ChildProcess = child.exec(command);
-  //   const execution_stdout = execution.stdout?.read();
-  //   this.terminal.write(execution_stdout);
-  // }
+  print(data: string): void {
+    this.terminal.writeln(data);
+  }
+
+  onTokenSubmitted(tokenList: Token[]) {
+    this.print(tokenList);
+  }
 }

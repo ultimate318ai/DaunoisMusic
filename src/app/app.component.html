@@ -1,3 +1,12 @@
-<p>this will works !</p>
+<form [formGroup]="form">
+  <!-- <input formControlName="contact" placeholder="contact" required /> -->
+  <textarea
+    id="code"
+    placeholder="code"
+    formControllerName="code"
+    required
+  ></textarea>
+  <button id="compile" type="submit">Compile</button>
+</form>
 <br />
 <app-terminal />
