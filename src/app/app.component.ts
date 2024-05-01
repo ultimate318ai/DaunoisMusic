@@ -27,8 +27,6 @@ export class AppComponent {
       throw new Error("No form control for 'code'");
     }
     const ramValue = control.value;
-    console.log('value');
-    console.log(ramValue);
     return ramValue ?? '';
   }
 

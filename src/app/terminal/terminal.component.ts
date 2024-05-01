@@ -42,7 +42,7 @@ export class TerminalComponent implements OnInit, OnChanges {
       this.print(tokenChanges.currentValue);
   }
 
-  print(data: string): void {
-    this.terminal.writeln(data);
+  print(data: string[]): void {
+    data.forEach((datum) => this.terminal.writeln(datum));
   }
 }

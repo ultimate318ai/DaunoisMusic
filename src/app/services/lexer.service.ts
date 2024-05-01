@@ -20,7 +20,6 @@ export class LexerService {
   private getRegex() {
     if (!this.regex) {
       this.regex = new RegExp(this.expr, 'gmu');
-      console.log(this.regex);
     }
     this.regex.lastIndex = this.index;
     return this.regex;
