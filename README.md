@@ -38,21 +38,28 @@ Where size is of : “small” (16pt-high staves), “normal” (20pt), “large
 
 # Full example (TODO)
 
-MusicSheet: small {
-    Instrument: Piano {
+MusicSheet: small;
+Instrument: {
+    Name: Piano;
     Staffs: 2;
-        Meterfrac: 4/4;
-        notes:
-        [
-            do#, reb, do
-        ],
-        [
-            re, si, la
-        ],
-        [
-            ...
-        ];
-    };
-};
+    Meterfrac: 4/4;
+    notes: {
+    [
+        do#, reb, do
+    ],
+    [
+        re, si, la
+    ],
+    [
+        ...
+    ]};
+},
+
+
+-----------------------------
+expr := : value; | { expr * }
+
+
+expr := : value; | { expr * } | [ NOTES ]
 
 
