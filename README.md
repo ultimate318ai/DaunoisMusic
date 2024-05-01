@@ -15,4 +15,44 @@ TODO
 
 # Music Language syntax
 
-TODO
+Links to delete after:
+
+https://medium.com/@kosamari/how-to-be-a-compiler-make-a-compiler-with-javascript-4a8a13d473b4
+
+
+https://www.ctan.org/pkg/musixtex
+
+# Daunois code syntax V0.1
+
+
+## Music Sheet
+
+```
+MusicSheet: <size> {
+<content>
+}
+```
+Where size is of : “small” (16pt-high staves), “normal” (20pt), “large” (24pt), and “Large” (29pt)
+
+
+
+# Full example (TODO)
+
+MusicSheet: small {
+    Instrument: Piano {
+    Staffs: 2;
+        Meterfrac: 4/4;
+        notes:
+        [
+            do#, reb, do
+        ],
+        [
+            re, si, la
+        ],
+        [
+            ...
+        ];
+    };
+};
+
+

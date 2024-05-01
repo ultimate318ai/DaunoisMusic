@@ -39,10 +39,19 @@ export class TerminalComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     const tokenChanges = changes['tokenSubmitted'];
     if (tokenChanges.currentValue != tokenChanges.previousValue)
-      this.print(tokenChanges.currentValue);
+      this.clearAndPrint(tokenChanges.currentValue);
   }
 
   print(data: string[]): void {
     data.forEach((datum) => this.terminal.writeln(datum));
+  }
+
+  clear(): void {
+    this.terminal.clear();
+  }
+
+  clearAndPrint(data: string[]) {
+    this.clear();
+    this.print(data);
   }
 }
