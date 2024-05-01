@@ -9,4 +9,7 @@
   <button id="compile" type="submit">Compile</button>
 </form>
 <br />
-<app-terminal [tokenSubmitted]="tokenAsStringList" />
+<app-terminal
+  [tokenSubmitted]="tokenAsStringList"
+  [astTree]="astTreeAsString"
+/>

@@ -7,7 +7,7 @@ export interface GrammarToken {
   match: string;
 }
 
-const languageKeywordList = <const>['MusicSheet'];
+const languageKeywordList = <const>['MusicSheet', 'value'];
 
 const languageSymbolList = <const>[
   'newline',
@@ -41,6 +41,10 @@ const grammar: GrammarToken[] = [
   {
     id: 'right brace',
     match: '\\}',
+  },
+  {
+    id: 'value',
+    match: '\\w+',
   },
 ];
 

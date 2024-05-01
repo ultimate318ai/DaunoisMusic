@@ -7,7 +7,6 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { Terminal } from '@xterm/xterm';
-import Token from '../services/types';
 
 @Component({
   selector: 'app-terminal',
@@ -24,6 +23,7 @@ export class TerminalComponent implements OnInit, OnChanges {
   private terminal: Terminal;
 
   @Input() tokenSubmitted: string[] = [];
+  @Input() astTree: string = '';
 
   constructor() {
     this.terminal = new Terminal();
@@ -38,12 +38,21 @@ export class TerminalComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     const tokenChanges = changes['tokenSubmitted'];
-    if (tokenChanges.currentValue != tokenChanges.previousValue)
+    if (tokenChanges && tokenChanges.currentValue != tokenChanges.previousValue)
       this.clearAndPrint(tokenChanges.currentValue);
+
+    const astChanges = changes['astTree'];
+
+    if (astChanges && astChanges.currentValue != astChanges.previousValue)
+      this.clearAndPrintDatum(astChanges.currentValue);
   }
 
   print(data: string[]): void {
-    data.forEach((datum) => this.terminal.writeln(datum));
+    data.forEach((datum) => this.printDatum(datum));
+  }
+
+  printDatum(datum: string): void {
+    this.terminal.writeln(datum);
   }
 
   clear(): void {
@@ -52,6 +61,13 @@ export class TerminalComponent implements OnInit, OnChanges {
 
   clearAndPrint(data: string[]) {
     this.clear();
+    this.print(['------------------------------------', '\n\n\n']);
     this.print(data);
+  }
+
+  clearAndPrintDatum(datum: string) {
+    this.clear();
+    this.print(['------------------------------------', '\n\n\n']);
+    this.printDatum(datum);
   }
 }

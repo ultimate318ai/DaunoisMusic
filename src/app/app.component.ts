@@ -12,6 +12,7 @@ export class AppComponent {
   title = 'DaunoisMusic';
 
   tokenAsStringList: string[] = [];
+  astTreeAsString: string = '';
 
   form: FormGroup;
 
@@ -33,5 +34,8 @@ export class AppComponent {
   sendCodeToCompiler(code: string) {
     const tokenList = this.compilerService.processLexerCode(code);
     this.tokenAsStringList = tokenList.map((token) => token.toString());
+    this.compilerService.processParserCode(tokenList);
+
+    this.astTreeAsString = this.compilerService.getAstTreeAsString();
   }
 }
