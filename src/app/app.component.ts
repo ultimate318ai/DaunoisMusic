@@ -1,7 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { CompilerService } from './services/compiler.service';
-import Token from './services/types';
 
 @Component({
   selector: 'app-root',
@@ -11,12 +9,9 @@ import Token from './services/types';
 export class AppComponent {
   title = 'DaunoisMusic';
 
-  tokenAsStringList: string[] = [];
-  astTreeAsString: string = '';
-
   form: FormGroup;
 
-  constructor(private compilerService: CompilerService) {
+  constructor() {
     this.form = new FormGroup({
       code: new FormControl('', [Validators.required]),
     });
@@ -29,13 +24,5 @@ export class AppComponent {
     }
     const ramValue = control.value;
     return ramValue ?? '';
-  }
-
-  sendCodeToCompiler(code: string) {
-    const tokenList = this.compilerService.processLexerCode(code);
-    this.tokenAsStringList = tokenList.map((token) => token.toString());
-    this.compilerService.processParserCode(tokenList);
-
-    this.astTreeAsString = this.compilerService.getAstTreeAsString();
   }
 }
