@@ -8,14 +8,16 @@
   ></textarea>
   <button id="compile" type="submit">Compile</button>
 </form>
-<div
-  *ngIf="codeErrors && (code.touched || code.dirty)"
+<div *ngIf="codeErrors; then jsonInvalid; else jsonValid"></div>
+<ng-template
+  #jsonInvalid
   class="cross-validation-error-message alert alert-danger"
 >
   Errors occurs while parsing json:
   <ul *ngFor="let error of codeErrors; let index = index">
     <li>({{ index + 1 }}) - {{ error }}</li>
   </ul>
-</div>
+</ng-template>
+<ng-template #jsonValid>Json is valid.</ng-template>
 <br />
 <app-terminal />
