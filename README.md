@@ -22,44 +22,18 @@ https://medium.com/@kosamari/how-to-be-a-compiler-make-a-compiler-with-javascrip
 
 https://www.ctan.org/pkg/musixtex
 
-# Daunois code syntax V0.1
+## Next steps
 
 
-## Music Sheet
+> Do JSON shema validator for music sheet using : 
 
-```
-MusicSheet: <size> {
-<content>
-}
-```
-Where size is of : “small” (16pt-high staves), “normal” (20pt), “large” (24pt), and “Large” (29pt)
+https://angular2-json-schema-form.firebaseapp.com/
+
+https://www.npmjs.com/package/jsonschema
 
 
+> run latex pdf using this in docker file -> revert revert commit & change file in order to install python and requirements & links below : 
 
-# Full example (TODO)
+https://jeltef.github.io/PyLaTeX/current/examples/full.html
 
-MusicSheet: small;
-Instrument: {
-    Name: Piano;
-    Staffs: 2;
-    Meterfrac: 4/4;
-    notes: {
-    [
-        do#, reb, do
-    ],
-    [
-        re, si, la
-    ],
-    [
-        ...
-    ]};
-},
-
-
------------------------------
-expr := : value; | { expr * }
-
-
-expr := : value; | { expr * } | [ NOTES ]
-
-
+https://jeltef.github.io/PyLaTeX/current/faq.html
