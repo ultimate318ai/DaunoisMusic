@@ -22,6 +22,7 @@
     "jsonschema": "^1.4.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "url": "^0.11.3",
     "zone.js": "~0.14.4"
   },
   "devDependencies": {

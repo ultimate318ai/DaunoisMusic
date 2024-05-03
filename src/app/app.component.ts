@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { invalidJsonValidator } from './shared/Json-validator.directive';
 
 @Component({
   selector: 'app-root',
@@ -13,16 +14,26 @@ export class AppComponent {
 
   constructor() {
     this.form = new FormGroup({
-      code: new FormControl('', [Validators.required]),
+      code: new FormControl('{}', [
+        Validators.required,
+        invalidJsonValidator(),
+      ]),
     });
   }
 
-  get code(): string {
+  get code() {
     const control = this.form.get('code');
     if (!control) {
-      throw new Error("No form control for 'code'");
+      throw new Error("No control for field 'code' in form.");
     }
-    const ramValue = control.value;
-    return ramValue ?? '';
+    return control;
+  }
+
+  get codeErrors() {
+    const control = this.form.get('code');
+    if (!control) {
+      throw new Error("No control for field 'code' in form.");
+    }
+    return control?.errors?.['invalidJson']?.value;
   }
 }
