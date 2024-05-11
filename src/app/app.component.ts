@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { invalidJsonValidator } from './shared/Json-validator.directive';
+import { ParserService } from './services/parser.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ export class AppComponent {
 
   form: FormGroup;
 
-  constructor() {
+  constructor(private parserService: ParserService) {
     this.form = new FormGroup({
       code: new FormControl('{}', [
         Validators.required,
@@ -35,5 +36,10 @@ export class AppComponent {
       throw new Error("No control for field 'code' in form.");
     }
     return control?.errors?.['invalidJson']?.value;
+  }
+
+  onCodeCompilation(): void {
+    this.parserService.parseJsonCode(this.code.value);
+    console.log(this.parserService.json);
   }
 }

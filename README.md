@@ -15,6 +15,21 @@ TODO
 
 # Music Language syntax
 
+
+Language used is *JSON* File. Each file have following structure:
+
+
+```json
+
+{
+"name": "example", // name for the latexFile Output
+"size": "Large" // accepted values are small|normal|large|Large
+}
+
+
+
+```
+
 Links to delete after:
 
 https://medium.com/@kosamari/how-to-be-a-compiler-make-a-compiler-with-javascript-4a8a13d473b4
@@ -32,7 +47,7 @@ https://angular2-json-schema-form.firebaseapp.com/
 https://www.npmjs.com/package/jsonschema
 
 
-> run latex pdf using this in docker file -> revert revert commit & change file in order to install python and requirements & links below : 
+> run latex pdf using this in docker file -> revert revert commit & change file in order to install python and requirements & links below :
 
 https://jeltef.github.io/PyLaTeX/current/examples/full.html
 

@@ -1,4 +1,4 @@
-<form [formGroup]="form" (submit)="(null)">
+<form [formGroup]="form" (submit)="!codeErrors && onCodeCompilation()">
   <!-- <input formControlName="contact" placeholder="contact" required /> -->
   <textarea
     id="code"

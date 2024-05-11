@@ -6,7 +6,11 @@ const mainSchema = {
   type: 'object',
   properties: {
     name: { type: 'string', required: true },
-    size: { type: 'string', pattern: '^(small|large|Large)$', required: true },
+    size: {
+      type: 'string',
+      pattern: '^(small|normal|large|Large)$',
+      required: true,
+    },
   },
 };
 /** Json validator with JSON schema */
@@ -14,9 +18,9 @@ export function invalidJsonValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     // const extraParams = { nestedErrors: true }; TODO: use it if necessary
 
-    const ramValue = control.value;
+    const rawValue = control.value;
     try {
-      const jsonValue = JSON.parse(ramValue);
+      const jsonValue = JSON.parse(rawValue);
       const validator = new jsonSchema.Validator();
       const result = validator.validate(jsonValue, mainSchema);
       7;
