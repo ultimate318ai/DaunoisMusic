@@ -1,5 +1,5 @@
 export type JsonMusicVariable = 'name' | 'size';
-const musicVariable: [JsonMusicVariable] = ['size'];
+const musicVariable = ['name', 'size'];
 
 export type LatexCode = { [k: string]: string };
 

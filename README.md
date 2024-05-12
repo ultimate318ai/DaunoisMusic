@@ -52,3 +52,9 @@ https://www.npmjs.com/package/jsonschema
 https://jeltef.github.io/PyLaTeX/current/examples/full.html
 
 https://jeltef.github.io/PyLaTeX/current/faq.html
+
+
+{
+"name": "toto", 
+"size": "Large"
+}

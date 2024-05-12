@@ -20,4 +20,6 @@ if __name__ == "__main__":
     with document.create(Section("This is a test")):
         document.append("Some regular text and some")
         document.append(italic("italic text. "))
-    document.generate_pdf("full", clean_tex=False)
+    document.generate_pdf("test", clean_tex=False)
+
+# TODO: add this in post request -> backend

@@ -15,7 +15,10 @@ export class AppComponent {
 
   constructor(private parserService: ParserService) {
     this.form = new FormGroup({
-      code: new FormControl('', [Validators.required, invalidJsonValidator()]),
+      code: new FormControl('{"name": "toto","size": "Large"}', [
+        Validators.required,
+        invalidJsonValidator(),
+      ]),
     });
   }
 

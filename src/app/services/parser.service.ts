@@ -20,10 +20,9 @@ export class ParserService {
   parseJsonCode(rawValue: string) {
     try {
       this.jsonValue = JSON.parse(rawValue, (key: string, value: string) => {
-        if (!isKeyOfJsonMusicVariable(key))
-          throw new Error('Wrong key in JSON.');
+        if (!isKeyOfJsonMusicVariable(key)) return value;
         const latexMappingKeyContent = latexMapping[key];
-        value = latexMappingKeyContent[value] ?? value;
+        return latexMappingKeyContent[value] ?? value;
       });
     } catch (error) {
       if (!(error instanceof SyntaxError)) {
