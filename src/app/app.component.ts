@@ -15,10 +15,7 @@ export class AppComponent {
 
   constructor(private parserService: ParserService) {
     this.form = new FormGroup({
-      code: new FormControl('{}', [
-        Validators.required,
-        invalidJsonValidator(),
-      ]),
+      code: new FormControl('', [Validators.required, invalidJsonValidator()]),
     });
   }
 
@@ -35,7 +32,7 @@ export class AppComponent {
     if (!control) {
       throw new Error("No control for field 'code' in form.");
     }
-    return control?.errors?.['invalidJson']?.value;
+    return control.dirty && control?.errors?.['invalidJson']?.value;
   }
 
   onCodeCompilation(): void {
