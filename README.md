@@ -58,3 +58,5 @@ https://jeltef.github.io/PyLaTeX/current/faq.html
 "name": "toto", 
 "size": "Large"
 }
+
+docker run -it --mount type=bind,src=.,dst=/usr/app --mount type=volume,dst=/usr/app/node_modules
