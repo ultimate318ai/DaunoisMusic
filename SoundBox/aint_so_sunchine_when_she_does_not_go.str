@@ -1,5 +1,8 @@
 setcpm(74/4)
-sound(`
+$: sound(`
 <[sd sd rim sd] [sd sd rim sd] [sd sd rim sd] [sd sd rim sd] [sd sd rim sd] [sd sd rim sd] [rim  -  -  - ]>,
-<[bd bd -  - ] [- bd  - - ] [bd - bd - ] [bd bd - - ] [bd bd -  - ] [- bd  - - ] [bd - -  - ]>
-`)
+<[bd bd -  - ] [- bd  - - ] [bd - bd - ] [bd bd - - ] [bd bd -  - ] [- bd  - - ] [bd - -  - ]>`)
+  
+$: note(
+  `<[a2 - e2 g2] [a2 - - -] [a2 - e2 g2] [a2 - - -] [c c c c] [c c c c] [c c c c] [c c c c]>`
+).sound("gm_electric_bass_pick")
