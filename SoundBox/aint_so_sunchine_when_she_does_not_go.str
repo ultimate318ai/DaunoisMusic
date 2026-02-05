@@ -1,1 +1,5 @@
-note("48 52 55 59").sound("piano")
+setcpm(74/4)
+sound(`
+<[sd sd rim sd] [sd sd rim sd] [sd sd rim sd] [sd sd rim sd] [sd sd rim sd] [sd sd rim sd] [rim  -  -  - ]>,
+<[bd bd -  - ] [- bd  - - ] [bd - bd - ] [bd bd - - ] [bd bd -  - ] [- bd  - - ] [bd - -  - ]>
+`)
