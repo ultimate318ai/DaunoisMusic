@@ -4,5 +4,5 @@ $: sound(`
 <[bd bd -  - ] [- bd  - - ] [bd - bd - ] [bd bd - - ] [bd bd -  - ] [- bd  - - ] [bd - -  - ]>`)
   
 $: note(
-  `<[a2 - e2 g2] [a2 - - -] [a2 - e2 g2] [a2 - - -] [e3 g3 [e3 db3]] [d3 - e2 g2] [a2 - - [e2 g2 e2] [g2 gb2]]>`
+  `<[a2 - e2 g2] [a2 - - -] [a2 - e2 g2] [a2 - - -] [e3 g3 e3 db3] [d3 d3 - [e2 g2]] [a2 a2 [e2 g2 e2] [g2 gb2]]>`
 ).sound("gm_electric_bass_pick")
